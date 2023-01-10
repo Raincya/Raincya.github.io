@@ -127,7 +127,7 @@
   
     
       <article
-id="post-hello-world"
+id="post-Disjoint-Set-Union"
 class="article article-type-post"
 >
 
@@ -138,23 +138,47 @@ class="article article-type-post"
 
     <div class="article-body">
     <header class="article-title">
-        <a href="/2023/01/10/hello-world/">Hello World</a>
+        <a href="/2023/01/10/Disjoint-Set-Union/">Disjoint Set Union</a>
     </header>
     <div class="article-entry post-inner-html">
         
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+        <p><strong>并查集</strong> 是一种 <strong>树型</strong> 的数据结构，用于处理一些 <strong>不相交集</strong> 的合并及查询问题</p>
+<p>主要有如下两种操作：</p>
+<ol>
+<li>合并两个集合（merge）</li>
+<li>判断两个元素是否在同一个集合中（find）</li>
+</ol>
+<p><strong>代码</strong>：</p>
+<pre><code class="cpp">namespace DSU&#123;
+    const int N = 1e6 + 10;
+    int fa[N],r[N];
+    // 初始化
+    void init(int n)&#123;
+        for(int i = 1;i &lt;= n;i++) 
+            fa[i] = i,r[i] = 1;
+    &#125;
+    // 查找（路径压缩）
+    int find(int x)&#123;
+        if(x == fa[x]) return x;
+        else &#123;
+            fa[x] = find(fa[x]);
+            return fa[x];
+        &#125;
+    &#125;
+    // 合并（按秩合并）
+    void merge(int x,int y)&#123;
+        int fx = find(x),fy = find(y);
+        if(r[fx] &lt;= r[fy]) fa[fx] = y;
+        else fa[fy] = fx;
+        if(r[fx] == r[fy] &amp;&amp; fx != fy) r[y]++;
+    &#125;
+&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p><strong>用法</strong>：</p>
+<pre><code class="cpp">DSU::init(n);
+DSU::find(x);
+DSU::merge(x,y);
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
         
     </div>
@@ -170,7 +194,7 @@ class="article article-type-post"
 <footer class="article-footer">
     <div class="article-more-info">
     <div class="article-date">
-  <time datetime="2023-01-10T07:54:49.784Z" itemprop="datePublished">2023-01-10</time>
+  <time datetime="2023-01-10T10:06:37.000Z" itemprop="datePublished">2023-01-10</time>
 </div>
     
     
@@ -210,7 +234,7 @@ class="article article-type-post"
       <ul>
         
           <li>
-            <a href="/2023/01/10/hello-world/">Hello World</a>
+            <a href="/2023/01/10/Disjoint-Set-Union/">Disjoint Set Union</a>
           </li>
         
       </ul>
