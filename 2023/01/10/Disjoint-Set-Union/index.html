@@ -1,387 +1,578 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="并查集 是一种 树型 的数据结构，用于处理一些 不相交集 的合并及查询问题 主要有如下两种操作：  合并两个集合（merge） 判断两个元素是否在同一个集合中（find）  代码： 123456789101112131415161718192021222324namespace DSU&amp;#123;	const int N &#x3D; 1e6 + 10;	int fa[N],r[N];	&#x2F;&#x2F; 初始化	voi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Disjoint Set Union">
+<meta property="og:url" content="https://raincya.github.io/2023/01/10/Disjoint-Set-Union/index.html">
+<meta property="og:site_name" content="Hydrogen&#39;s Blog">
+<meta property="og:description" content="并查集 是一种 树型 的数据结构，用于处理一些 不相交集 的合并及查询问题 主要有如下两种操作：  合并两个集合（merge） 判断两个元素是否在同一个集合中（find）  代码： 123456789101112131415161718192021222324namespace DSU&amp;#123;	const int N &#x3D; 1e6 + 10;	int fa[N],r[N];	&#x2F;&#x2F; 初始化	voi">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-01-10T10:06:37.000Z">
+<meta property="article:modified_time" content="2023-01-11T08:15:02.002Z">
+<meta property="article:author" content="Hydrogen">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+
+
+<title >Disjoint Set Union</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=0.0.0' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=0.0.0' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
 
     
-    <title>Disjoint Set Union | Nisroch&#39;s Blog</title>
-
-    <meta name="description" content="Nisroch&#39;s Blog">
-    <meta name="keywords" content="">
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
 
     
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 
-    <meta property="og:locale" content="zh-CN" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content= "Disjoint Set Union | Nisroch&#39;s Blog"  />
-    <meta property="og:description" content= "Nisroch&#39;s Blog" />
-    <meta property="og:url" content="https://raincya.github.io/2023/01/10/Disjoint-Set-Union/index.html" />
-    <meta property="og:site_name" content="" />
-    <meta property="article:author" content="Nisroch" />
-    <meta property="article:publisher" content="" />
-    <meta property="og:description" content="Nisroch&#39;s Blog" />
-    <meta name="twitter:title" content="Disjoint Set Union | Nisroch&#39;s Blog"/>
-    <meta name="twitter:description" content="Nisroch&#39;s Blog"/>
-    <script type="application/ld+json">
-        {
-            "description": "Nisroch&#39;s Blog",
-            "author": { "@type": "Person", "name": "Nisroch" },
-            "@type": "BlogPosting",
-            "url": "https://raincya.github.io/2023/01/10/Disjoint-Set-Union/index.html",
-            "publisher": {
-            "@type": "Organization",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://raincya.github.ioundefined"
-            },
-            "name": "Nisroch"
-            },
-            "headline": "Disjoint Set Union | Nisroch&#39;s Blog",
-            "datePublished": "2023-01-10T10:06:37.000Z",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://raincya.github.io/2023/01/10/Disjoint-Set-Union/index.html"
-            },
-            "@context": "http://schema.org"
-        }
-    </script>
-
-
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
 
 
     
 
     
 
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"raincya.github.io","author":"Hydrogen","root":"/","typed_text":["ACMer"],"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"theme_version":"0.0.0","theme":{"switch":true,"default":"style-light"},"search":{"enable":true,"type":"local","path":"search.xml"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_button":"复制","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh","post":false,"clipboard":false},"swup":false,"plugin":{"flickr_justified_gallery":{"js":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"fancybox":{"css":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css","js":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"}},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h"}};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=0.0.0" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
     
 
     
 
-    
-
-    
-
-    
-
-    
-<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
 
 
-    
-<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
-
-
-    <script>
-        window.isPost = true
-        window.aomori = {
-            
-            
-            
-        }
-        window.aomori_logo_typed_animated = false
-        window.aomori_search_algolia = false
-
-    </script>
-
+<!-- Site Analytics -->
+ 
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
 
-    <div class="container">
-    <header class="header">
-        <div class="header-type">
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style=" position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+			<a href="/" class="trm-logo-frame trm-anima-link">
+				
+					<img alt="logo" src="/img/favicon.svg">
+				
+				
+					<div class="trm-logo-text">
+						Hy<span>drogen</span>
+					</div>
+				
+			</a>
+			<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+
+			<!-- menu -->
+			<div class="trm-menu">
+				<nav>
+					<ul>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/" target="">
+								Home
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/archives/" target="">
+								Archives
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/categories/" target="">
+								Categories
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/tags/" target="">
+								Tags
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/about/" target="">
+								About
+							</a>
+							
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+			<!-- menu end -->
+			
+			<!-- mode switcher place -->
+			
+			<div class="trm-mode-switcher-place">
+				<!-- <div class="trm-hidden-switcher"> -->
+					<div class="trm-mode-switcher">
+					  <i class="iconfont far fa-sun"></i>
+					  <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+					  <label class="trm-swich" for="trm-swich"></label>
+					  <i class="iconfont far fa-moon"></i>
+					</div>
+				  <!-- </div> -->
+			</div>
+			
+			<!-- mode switcher place end -->
+
+			
+				
+				<div id="trm-search-btn" class="trm-search-btn">
+					<i class="iconfont fas fa-search"></i>
+				</div>
+				 
+			 
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
             
-            <div class="header-type-inner">
-                
-                    <a class="header-type-title" href="/">Nisroch&#39;s Blog</a>
-                
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
-                
-            </div>
-        </div>
-        <div class="header-menu">
-            <div class="header-menu-inner">
-                
-            </div>
-            <div class="header-menu-social">
-                
-            </div>
-        </div>
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
 
-        <div class="header-menu-mobile">
-            <div class="header-menu-mobile-inner" id="mobile-menu-open">
-                <i class="icon icon-menu"></i>
-            </div>
-        </div>
-    </header>
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
 
-    <div class="header-menu-mobile-menu">
-        <div class="header-menu-mobile-menu-bg"></div>
-        <div class="header-menu-mobile-menu-wrap">
-            <div class="header-menu-mobile-menu-inner">
-                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
-                    <i class="icon icon-cross"></i>
-                </div>
-                <div class="header-menu-mobile-menu-list">
-                    
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            Disjoint Set Union
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
                 </div>
             </div>
         </div>
     </div>
-
+    <!-- banner content end -->
 </div>
-
+    <!-- banner end -->
     <div class="container">
-        <div class="main">
-            <section class="inner">
-                <section class="inner-main">
-                    <div class="post">
-    <article id="post-clcr8mb9w0002y8uc06nd59xb" class="article article-type-post" itemscope
-    itemprop="blogPost">
-
-    <div class="article-inner">
-
-        
-          
-        
-        
-        
-
-        
-        <header class="article-header">
+        <div class="row">
             
-  
-    <h1 class="article-title" itemprop="name">
-      Disjoint Set Union
-    </h1>
-  
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
 
-        </header>
-        
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="http://q1.qlogo.cn/g?b=qq&nk=25569983&s=640">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Hydrogen
+    </h5>
+    
+    <div class="trm-label">
+        I`m a
+        <span class="trm-typed-text">
+            <!-- Words for theme.user.typedText -->
+        </span>
+    </div>
+    
+</div>
+<!-- card header end -->
 
-        <div class="article-more-info article-more-info-post hairline">
+<!-- sidebar social -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
 
-            <div class="article-date">
-  <time datetime="2023-01-10T10:06:37.000Z" itemprop="datePublished">2023-01-10</time>
+<div class="trm-social">
+    
+        <a href="https://github.com/Raincya" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
 </div>
 
-            
+<!-- sidebar social end -->
 
-            
+<!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
 
-            
+<!-- info end -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<!-- action button -->
+<div class="text-center">
+    <a href="mailto:25569983@qq.com" class="trm-btn">
+        联系我
+        <i class="iconfont far fa-envelope"></i>
+    </a>
+</div>
+<!-- action button end -->
 
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            01/10
         </div>
-
-        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p><strong>并查集</strong> 是一种 <strong>树型</strong> 的数据结构，用于处理一些 <strong>不相交集</strong> 的合并及查询问题</p>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            18:06
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Hydrogen
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p><strong>并查集</strong> 是一种 <strong>树型</strong> 的数据结构，用于处理一些 <strong>不相交集</strong> 的合并及查询问题</p>
 <p>主要有如下两种操作：</p>
 <ol>
 <li>合并两个集合（merge）</li>
 <li>判断两个元素是否在同一个集合中（find）</li>
 </ol>
 <p><strong>代码</strong>：</p>
-<pre><code class="cpp">namespace DSU&#123;
-    const int N = 1e6 + 10;
-    int fa[N],r[N];
-    // 初始化
-    void init(int n)&#123;
-        for(int i = 1;i &lt;= n;i++) 
-            fa[i] = i,r[i] = 1;
-    &#125;
-    // 查找（路径压缩）
-    int find(int x)&#123;
-        if(x == fa[x]) return x;
-        else &#123;
-            fa[x] = find(fa[x]);
-            return fa[x];
-        &#125;
-    &#125;
-    // 合并（按秩合并）
-    void merge(int x,int y)&#123;
-        int fx = find(x),fy = find(y);
-        if(r[fx] &lt;= r[fy]) fa[fx] = y;
-        else fa[fy] = fx;
-        if(r[fx] == r[fy] &amp;&amp; fx != fy) r[y]++;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> DSU&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> fa[N],r[N];</span><br><span class="line">	<span class="comment">// 初始化</span></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++) </span><br><span class="line">			fa[i] = i,r[i] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 查找（路径压缩）</span></span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(x == fa[x]) <span class="keyword">return</span> x;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			fa[x] = <span class="built_in">find</span>(fa[x]);</span><br><span class="line">			<span class="keyword">return</span> fa[x];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 合并（按秩合并）</span></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">		<span class="type">int</span> fx = <span class="built_in">find</span>(x),fy = <span class="built_in">find</span>(y);</span><br><span class="line">		<span class="keyword">if</span>(r[fx] &lt;= r[fy]) fa[fx] = y;</span><br><span class="line">		<span class="keyword">else</span> fa[fy] = fx;</span><br><span class="line">		<span class="keyword">if</span>(r[fx] == r[fy] &amp;&amp; fx != fy) r[y]++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>用法</strong>：</p>
-<pre><code class="cpp">DSU::init(n);
-DSU::find(x);
-DSU::merge(x,y);
-</code></pre>
-
-        </div>
-
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-<nav class="article-nav">
-  
-    <a href="/2023/01/10/Stack-Queue/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-caption">下一篇</div>
-      <div class="article-nav-title">
-        
-          Stack &amp; Queue
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-
-    <section class="share">
-        <div class="share-title">分享</div>
-        <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Disjoint Set Union - Nisroch's Blog&url=https%3A%2F%2Fraincya.github.io%2F2023%2F01%2F10%2FDisjoint-Set-Union%2F">
-            <ion-icon name="logo-twitter"></ion-icon>
-        </a>
-        <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Disjoint Set Union - Nisroch's Blog&u=https%3A%2F%2Fraincya.github.io%2F2023%2F01%2F10%2FDisjoint-Set-Union%2F">
-            <ion-icon name="logo-facebook"></ion-icon>
-        </a>
-        <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Disjoint Set Union - Nisroch's Blog&url=https://raincya.github.io/2023/01/10/Disjoint-Set-Union/&pic=">
-            <div class="n-icon n-icon-weibo"></div>
-        </a> -->
-    </section>
-
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DSU::<span class="built_in">init</span>(n);</span><br><span class="line">DSU::<span class="built_in">find</span>(x);</span><br><span class="line">DSU::<span class="built_in">merge</span>(x,y);</span><br></pre></td></tr></table></figure>
 </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
 </div>
-                </section>
-            </section>
-
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+    <a href="/2023/01/10/Stack-Queue/" class="trm-cover-frame trm-anima-link">
+        
+        
+            <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+        
+    </a>
+    <div class="trm-card-descr">
+        <div class="trm-label trm-category trm-mb-20">
+            <a href=" /categories/%E7%AE%97%E7%AB%9E%E6%A8%A1%E6%9D%BF/">
+                算竞模板
+            </a>
+        </div>
+        <h5>
+            <a href="/2023/01/10/Stack-Queue/" class="trm-anima-link">
+                Stack &amp; Queue
+            </a>
+        </h5>
+        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+        <ul class="trm-card-data trm-label">
+            <li>23/01/10</li>
+            <li>21:39</li>
             
-            <aside class="sidebar ">
-                
-
-
-<div class="widget" id="widget">
-    
-      
-  <div class="widget-wrap">
-    <div class="widget-inner">
-      <div class="toc post-toc-html"></div>
+            
+        </ul>
     </div>
-  </div>
-
+</div>
+        </div>
     
-      
-
-    
-      
-
-    
-      
-  <div class="widget-wrap widget-recent-posts">
-    <div class="widget-title"><span>Recent Posts</span></div>
-    <div class="widget-inner">
-      <ul>
-        
-          <li>
-            <a href="/2023/01/11/Codeforces-Round-843-Div-2-A-C/">Codeforces Round 843 (Div.2) A1-A2</a>
-          </li>
-        
-          <li>
-            <a href="/2023/01/10/Stack-Queue/">Stack &amp; Queue</a>
-          </li>
-        
-          <li>
-            <a href="/2023/01/10/Disjoint-Set-Union/">Disjoint Set Union</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget-wrap widget-archive">
-    <div class="widget-title"><span>Archive</span></div>
-    <div class="widget-inner">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li></ul>
-    </div>
-  </div>
-
-
     
 </div>
 
-<div id="backtop"><i class="icon icon-arrow-up"></i></div>
-            </aside>
-            
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v0.0.0
+            </span>
         </div>
-    </div>
+      
 
-    <footer class="footer">
-    <div class="footer-wave">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-    </div>
+     
 
-    <!-- Please do not remove this -->
-    <!-- 开源不易，请勿删除 -->
-    <div class="footer-wrap">
-        <div class="footer-inner"> 
-            Nisroch&#39;s Blog &copy; 2023<br>
-            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
-        </div>
-    </div>
-
+     
 </footer>
+ 
+                    <!-- footer end -->
 
-<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <!-- body -->
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+</div>
+            <!-- body end -->
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  <div id="trm-back-top" class="trm-back-top" data-title="回到顶部">
+    <i class="iconfont fas fa-arrow-up"></i>
+</div>
+  
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
+  <!-- Plugin -->
+
+
+
+    
+    
+
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=0.0.0"></script>
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=0.0.0"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+
+    <!-- 评论插件 -->
+    
+        
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
 
 
 
 
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
 
 
-<script src="/dist/build.js?1654266144177.js"></script>
-
-
-<script src="/dist/custom.js?1654266144177.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
+<script id="async-script" src="/js/main.js?v=0.0.0"></script>
 
 </body>
 
