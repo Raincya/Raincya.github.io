@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="比赛链接：https:&#x2F;&#x2F;ac.nowcoder.com&#x2F;acm&#x2F;contest&#x2F;46810  A.Tokitsukaze and a+b&#x3D;n (easy)签到题 思路：遍历 [l1,r1] 区间，判断 n-i 是否在 [l2,r2] 区间内 代码： 123456789101112void Sol()&amp;#123;    int n;    cin &gt;&gt; n;    int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023 NowCoder Winter Camp 2">
+<meta property="og:url" content="https://raincya.github.io/2023/01/19/2023-NowCoder-Winter-Camp-2/index.html">
+<meta property="og:site_name" content="Hydrogen&#39;s Blog">
+<meta property="og:description" content="比赛链接：https:&#x2F;&#x2F;ac.nowcoder.com&#x2F;acm&#x2F;contest&#x2F;46810  A.Tokitsukaze and a+b&#x3D;n (easy)签到题 思路：遍历 [l1,r1] 区间，判断 n-i 是否在 [l2,r2] 区间内 代码： 123456789101112void Sol()&amp;#123;    int n;    cin &gt;&gt; n;    int">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-01-19T06:17:13.000Z">
+<meta property="article:modified_time" content="2023-01-21T06:20:28.344Z">
+<meta property="article:author" content="Hydrogen">
+<meta property="article:tag" content="训练赛补题">
+<meta name="twitter:card" content="summary">
+
+
+<title >2023 NowCoder Winter Camp 2</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=0.0.0' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=0.0.0' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+
+    
+
+    
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"raincya.github.io","author":"Hydrogen","root":"/","typed_text":["Hydrogen"],"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"theme_version":"0.0.0","theme":{"switch":true,"default":"style-light"},"search":{"enable":true,"type":"local","path":"search.xml"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_button":"复制","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh","post":false,"clipboard":false},"swup":false,"plugin":{"flickr_justified_gallery":{"js":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"fancybox":{"css":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css","js":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"}},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h"}};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=0.0.0" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style=" position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+			<a href="/" class="trm-logo-frame trm-anima-link">
+				
+					<img alt="logo" src="/img/favicon.svg">
+				
+				
+					<div class="trm-logo-text">
+						Hy<span>drogen</span>
+					</div>
+				
+			</a>
+			<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+
+			<!-- menu -->
+			<div class="trm-menu">
+				<nav>
+					<ul>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/" target="">
+								Home
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/archives/" target="">
+								Archives
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/categories/" target="">
+								Categories
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/tags/" target="">
+								Tags
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/about/" target="">
+								About
+							</a>
+							
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+			<!-- menu end -->
+			
+			<!-- mode switcher place -->
+			
+			<div class="trm-mode-switcher-place">
+				<!-- <div class="trm-hidden-switcher"> -->
+					<div class="trm-mode-switcher">
+					  <i class="iconfont far fa-sun"></i>
+					  <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+					  <label class="trm-swich" for="trm-swich"></label>
+					  <i class="iconfont far fa-moon"></i>
+					</div>
+				  <!-- </div> -->
+			</div>
+			
+			<!-- mode switcher place end -->
+
+			
+				
+				<div id="trm-search-btn" class="trm-search-btn">
+					<i class="iconfont fas fa-search"></i>
+				</div>
+				 
+			 
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2023 NowCoder Winter Camp 2
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="http://q1.qlogo.cn/g?b=qq&nk=25569983&s=640">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Hydrogen
+    </h5>
+    
+    <div class="trm-label">
+        I`m
+        <span class="trm-typed-text">
+            <!-- Words for theme.user.typedText -->
+        </span>
+    </div>
+    
+</div>
+<!-- card header end -->
+
+<!-- sidebar social -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+
+<div class="trm-social">
+    
+        <a href="https://github.com/Raincya" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+
+<!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+
+<!-- info end -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<!-- action button -->
+<div class="text-center">
+    <a href="mailto:25569983@qq.com" class="trm-btn">
+        联系我
+        <i class="iconfont far fa-envelope"></i>
+    </a>
+</div>
+<!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            01/19
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            14:17
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Hydrogen
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <blockquote>
+<p>比赛链接：<a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/46810" title="2023牛客寒假算法基础集训营2">https://ac.nowcoder.com/acm/contest/46810</a></p>
+</blockquote>
+<h1 id="A-Tokitsukaze-and-a-b-x3D-n-easy"><a href="#A-Tokitsukaze-and-a-b-x3D-n-easy" class="headerlink" title="A.Tokitsukaze and a+b&#x3D;n (easy)"></a>A.Tokitsukaze and a+b&#x3D;n (easy)</h1><p><strong>签到题</strong></p>
+<p><strong>思路</strong>：<br>遍历 <strong>[l1,r1]</strong> 区间，判断 <strong>n-i</strong> 是否在 <strong>[l2,r2]</strong> 区间内</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> l1, r1, l2, r2;</span><br><span class="line">    cin &gt;&gt; l1 &gt;&gt; r1 &gt;&gt; l2 &gt;&gt; r2;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = l1; i &lt;= r1; i++)</span><br><span class="line">        <span class="keyword">if</span> (n - i &gt;= l2 &amp;&amp; n - i &lt;= r2)</span><br><span class="line">            ans++;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="B-Tokitsukaze-and-a-b-x3D-n-medium"><a href="#B-Tokitsukaze-and-a-b-x3D-n-medium" class="headerlink" title="B.Tokitsukaze and a+b&#x3D;n (medium)"></a>B.Tokitsukaze and a+b&#x3D;n (medium)</h1><p><strong>思路</strong>：<br>对于 <strong>[l1,r1]</strong> 区间 **有贡献的区间为[n-l1,n-r1]**，所以计算 <strong>[n-l1,n-r1]与[l2,r2]区间的交集</strong> 就可以得出结果</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> l1, r1, l2, r2;</span><br><span class="line">    cin &gt;&gt; l1 &gt;&gt; r1 &gt;&gt; l2 &gt;&gt; r2;</span><br><span class="line">    <span class="type">int</span> r = n - l2;</span><br><span class="line">    <span class="type">int</span> l = n - r2;</span><br><span class="line">    <span class="keyword">if</span> (r &lt; l1 || l &gt; r1)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    l1 = <span class="built_in">max</span>(l1, l), r1 = <span class="built_in">min</span>(r1, r);</span><br><span class="line">    cout &lt;&lt; r1 - l1 + <span class="number">1</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="D-Tokitsukaze-and-Energy-Tree"><a href="#D-Tokitsukaze-and-Energy-Tree" class="headerlink" title="D.Tokitsukaze and Energy Tree"></a>D.Tokitsukaze and Energy Tree</h1><p><strong>思路</strong>：<br>从题目中可以看出，给深度越深的节点以更大的能量时，对上方节点贡献越大，所以，把较大的能量球给深度较深的节点，能量小的放在小的节点即可</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt; <span class="type">int</span> &gt; son[n + <span class="number">1</span>], arr;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        son[x].<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    arr.<span class="built_in">resize</span>(n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; arr[i];</span><br><span class="line">    <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>() + <span class="number">1</span>, arr.<span class="built_in">begin</span>() + <span class="number">1</span> + n);</span><br><span class="line">    queue&lt; pair&lt; <span class="type">int</span>, <span class="type">int</span> &gt; &gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>,cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> tmp = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="type">int</span> cur = tmp.first, dep = tmp.second;</span><br><span class="line">        res += arr[++cnt] * dep;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> x : son[cur])</span><br><span class="line">            q.<span class="built_in">push</span>(&#123;x, dep + <span class="number">1</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="E-Tokitsukaze-and-Function"><a href="#E-Tokitsukaze-and-Function" class="headerlink" title="E.Tokitsukaze and Function"></a>E.Tokitsukaze and Function</h1><p><strong>思路</strong>：<br>对函数求导可以得出 <strong>极值点为 sqrt(x)</strong> ，单调性为 <strong>先减后增</strong>，即 <strong>极小值为sqrt(x)</strong> ，所以只需判断 <strong>极值点[l,r]区间内</strong> 从而确定最小值，<strong>对 [l,min(sqrt(x),r)] 二分即可</strong></p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, ll, rr;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; ll &gt;&gt; rr;</span><br><span class="line">    <span class="type">int</span> tmp = <span class="built_in">sqrt</span>(n);</span><br><span class="line">    vector&lt; <span class="type">int</span> &gt; v;</span><br><span class="line">    v.<span class="built_in">push_back</span>(n / ll + ll - <span class="number">1</span>), v.<span class="built_in">push_back</span>(n / rr + rr - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (tmp &gt;= ll &amp;&amp; tmp &lt;= rr)</span><br><span class="line">        v.<span class="built_in">push_back</span>(n / tmp + tmp - <span class="number">1</span>);</span><br><span class="line">    tmp++;</span><br><span class="line">    <span class="keyword">if</span> (tmp &gt;= ll &amp;&amp; tmp &lt;= rr)</span><br><span class="line">        v.<span class="built_in">push_back</span>(n / tmp + tmp - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">auto</span> minn = <span class="built_in">min_element</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">if</span> (n / tmp + tmp - <span class="number">1</span> != *minn)</span><br><span class="line">        tmp--;</span><br><span class="line">    <span class="type">int</span> l = ll, r = <span class="built_in">min</span>(tmp, rr);</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (n / mid + mid - <span class="number">1</span> &lt;= *minn)</span><br><span class="line">            r = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; l &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="J-Tokitsukaze-and-Sum-of-MxAb"><a href="#J-Tokitsukaze-and-Sum-of-MxAb" class="headerlink" title="J.Tokitsukaze and Sum of MxAb"></a>J.Tokitsukaze and Sum of MxAb</h1><p><strong>思路</strong>：<br>从题目公式展开可得<br>第i行为 ** n * a[i] + a[1] + a[2] + … + a[n] **<br>共有n行，那么整理可得<br>** ans &#x3D; n(a[1] + a[2] + … + a[n]) + n(a[1] + a[2] + … + a[n]) **<br>即<br>** ans &#x3D; 2n(a[1] + a[2] + … + a[n]) **</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">auto</span> _abs = [](<span class="type">int</span> a) -&gt; <span class="type">int</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> a &gt;= <span class="number">0</span> ? a : -a;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; arr[i];</span><br><span class="line">        ans += _abs(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans * n * <span class="number">2</span> &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+    <a href="/2023/01/17/2023-NowCoder-Winter-Camp-1/" class="trm-cover-frame trm-anima-link">
+        
+        
+            <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+        
+    </a>
+    <div class="trm-card-descr">
+        <div class="trm-label trm-category trm-mb-20">
+            <a href=" /categories/%E9%A2%98%E8%A7%A3%E8%AE%B0%E5%BD%95/">
+                题解记录
+            </a>
+        </div>
+        <h5>
+            <a href="/2023/01/17/2023-NowCoder-Winter-Camp-1/" class="trm-anima-link">
+                2023 NowCoder Winter Camp 1
+            </a>
+        </h5>
+        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+        <ul class="trm-card-data trm-label">
+            <li>23/01/17</li>
+            <li>13:43</li>
+            
+            
+        </ul>
+    </div>
+</div>
+        </div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v0.0.0
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <!-- body -->
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+</div>
+            <!-- body end -->
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  <div id="trm-back-top" class="trm-back-top" data-title="回到顶部">
+    <i class="iconfont fas fa-arrow-up"></i>
+</div>
+  
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
+  <!-- Plugin -->
+
+
+
+    
+    
+
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=0.0.0"></script>
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=0.0.0"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+
+    <!-- 评论插件 -->
+    
+        
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=0.0.0"></script>
+
+</body>
+
+</html>
