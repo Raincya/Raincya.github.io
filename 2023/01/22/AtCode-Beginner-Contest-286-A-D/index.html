@@ -7,16 +7,21 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hydrogen&#39;s Blog">
-<meta property="og:url" content="https://raincya.github.io/categories/%E7%AE%97%E7%AB%9E%E6%A8%A1%E6%9D%BF/index.html">
+<meta name="description" content="比赛链接：https:&#x2F;&#x2F;atcoder.jp&#x2F;contests&#x2F;abc286  A.Range Swap签到题 代码： 1234567891011void Sol()&amp;#123;    int n,p,q,r,s;    cin &gt;&gt; n &gt;&gt; p &gt;&gt; q &gt;&gt; r &gt;&gt; s;    for(int i &#x3D; 1;i &lt;&#x3D; n;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtCode Beginner Contest 286 A-D">
+<meta property="og:url" content="https://raincya.github.io/2023/01/22/AtCode-Beginner-Contest-286-A-D/index.html">
 <meta property="og:site_name" content="Hydrogen&#39;s Blog">
+<meta property="og:description" content="比赛链接：https:&#x2F;&#x2F;atcoder.jp&#x2F;contests&#x2F;abc286  A.Range Swap签到题 代码： 1234567891011void Sol()&amp;#123;    int n,p,q,r,s;    cin &gt;&gt; n &gt;&gt; p &gt;&gt; q &gt;&gt; r &gt;&gt; s;    for(int i &#x3D; 1;i &lt;&#x3D; n;">
 <meta property="og:locale">
+<meta property="article:published_time" content="2023-01-22T04:33:13.000Z">
+<meta property="article:modified_time" content="2023-01-22T05:01:26.949Z">
 <meta property="article:author" content="Hydrogen">
+<meta property="article:tag" content="训练赛补题">
 <meta name="twitter:card" content="summary">
 
 
-<title >Hydrogen's Blog</title>
+<title >AtCode Beginner Contest 286 A-D</title>
 
 <!-- Favicon -->
 
@@ -219,7 +224,8 @@
             <!-- top bar end -->
 
             <!-- body -->
-            <div class="trm-content-start">
+            
+<div class="trm-content-start">
     <!-- banner -->
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
@@ -240,10 +246,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            The article archive
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            须知少年凌云志，<br>曾许人间第一流。
+                            AtCode Beginner Contest 286 A-D
                         </h1>
 
                         
@@ -253,7 +259,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        categories
+                                        2023
                                     </span
                                 ></li>
                             </ul>
@@ -353,125 +359,93 @@
                 <div class="trm-content" id="trm-content">
                     <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
 
-                    <div class="row">
-    <div class="col-lg-12">
-        <div class="trm-card">
-            <div style="padding: 0 20px;">
-                
-                    <ul class="row trm-list"><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/%E7%AE%97%E7%AB%9E%E6%A8%A1%E6%9D%BF/">算竞模板</a><span class="category-list-count">（3）</span></li><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3%E8%AE%B0%E5%BD%95/">题解记录</a><span class="category-list-count">（7）</span></li></ul>
-                
-            </div>
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            01/22
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            12:33
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Hydrogen
         </div>
     </div>
 </div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <blockquote>
+<p>比赛链接：<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc286" title="UL Systems Programming Contest 2023(AtCoder Beginner Contest 286)">https://atcoder.jp/contests/abc286</a></p>
+</blockquote>
+<h1 id="A-Range-Swap"><a href="#A-Range-Swap" class="headerlink" title="A.Range Swap"></a>A.Range Swap</h1><p><strong>签到题</strong></p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,p,q,r,s;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; p &gt;&gt; q &gt;&gt; r &gt;&gt; s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        cin &gt;&gt; arr[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; q - p + <span class="number">1</span>;i++)</span><br><span class="line">        <span class="built_in">swap</span>(arr[p + i],arr[r + i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        cout &lt;&lt; arr[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<!-- history -->
+<h1 id="B-Cat"><a href="#B-Cat" class="headerlink" title="B.Cat"></a>B.Cat</h1><p><strong>签到题</strong><br>遍历字符串，逢 na 输出 nya 即可</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    string str;</span><br><span class="line">    cin &gt;&gt; str;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str[i] == <span class="string">&#x27;n&#x27;</span> &amp;&amp; str[i + <span class="number">1</span>] == <span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;nya&quot;</span>, i += <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; str[i++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="row">
+<h1 id="C-Rotate-and-Palindrome"><a href="#C-Rotate-and-Palindrome" class="headerlink" title="C.Rotate and Palindrome"></a>C.Rotate and Palindrome</h1><p><strong>思路</strong>：<br>枚举操作一的次数，然后计算操作二的花费，取和的最小值即可</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, a, b;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    string str;</span><br><span class="line">    cin &gt;&gt; str;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">1e18</span> + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">auto</span> getcost = [&amp;](<span class="type">int</span> fst) -&gt; <span class="type">int</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> lst = (fst - <span class="number">1</span> + n) % n, res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> cnt = n / <span class="number">2</span>; cnt;</span><br><span class="line">             fst = (fst + <span class="number">1</span>) % n, lst = (lst - <span class="number">1</span> + n) % n, --cnt)</span><br><span class="line">            res += (str[fst] != str[lst]) * b;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        ans = <span class="built_in">min</span>(ans, i * a + <span class="built_in">getcost</span>(i));</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="D-Money-in-Hand"><a href="#D-Money-in-Hand" class="headerlink" title="D.Money in Hand"></a>D.Money in Hand</h1><p><strong>思路</strong>：<br>多重背包，设 dp[i] 为能否凑出 i 元，转移枚举使用那种硬币 and 使用多少个</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    <span class="function">vector&lt; <span class="type">int</span> &gt; <span class="title">dp</span><span class="params">(x + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = x; j &gt;= a; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= b; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt;= k * a)</span><br><span class="line">                    dp[j] |= dp[j - k * a];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dp[x])</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;No\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
     <div class="col-lg-12">
         <!-- title -->
         <h5 class="trm-title-with-divider">
-            
-                算竞模板
-            
-            <span data-number="01"></span>
+            其他文章
+            <span data-number="02"></span>
         </h5>
     </div>
-    <div class="col-lg-12">
-        <!-- timeline -->
-        <div class="trm-timeline">
-            
-            <div class="trm-timeline-item trm-scroll-animation" data-scroll data-scroll-offset="40">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2023/01/13/Binary-Indexed-Tree/" class="trm-anima-link">
-                                        Binary Indexed Tree
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">01/13</li>
-                                        <li class="trm-accent-color">19:58</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation" data-scroll data-scroll-offset="40">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2023/01/10/Stack-Queue/" class="trm-anima-link">
-                                        Stack &amp; Queue
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">01/10</li>
-                                        <li class="trm-accent-color">21:39</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation" data-scroll data-scroll-offset="40">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2023/01/10/Disjoint-Set-Union/" class="trm-anima-link">
-                                        Disjoint Set Union
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">01/10</li>
-                                        <li class="trm-accent-color">18:06</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
+    
+    
+        <div class="col-lg-6">
+            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+    <a href="/2023/01/21/2023-NowCoder-Winter-Camp-3/" class="trm-cover-frame trm-anima-link">
+        
+        
+            <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+        
+    </a>
+    <div class="trm-card-descr">
+        <div class="trm-label trm-category trm-mb-20">
+            <a href=" /categories/%E9%A2%98%E8%A7%A3%E8%AE%B0%E5%BD%95/">
+                题解记录
+            </a>
         </div>
-        <!-- timeline end -->
+        <h5>
+            <a href="/2023/01/21/2023-NowCoder-Winter-Camp-3/" class="trm-anima-link">
+                2023 NowCoder Winter Camp 3
+            </a>
+        </h5>
+        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+        <ul class="trm-card-data trm-label">
+            <li>23/01/21</li>
+            <li>14:22</li>
+            
+            
+        </ul>
     </div>
 </div>
+        </div>
+    
+</div>
 
-<!-- history end -->
-
-
-    <div class="trm-pagination">
-        <span class="page-number current">1</span>
-    </div>
-
-
+    
 
 
 
@@ -514,6 +488,10 @@
 
             <!-- body -->
             <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
     
     
 </div>
@@ -576,6 +554,9 @@
 
 
     <!-- 评论插件 -->
+    
+        
+        
     
 
 
