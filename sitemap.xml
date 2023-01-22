@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://raincya.github.io/2023/01/22/Sparse-Table/</loc>
+    
+    <lastmod>2023-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://raincya.github.io/2023/01/22/AtCode-Beginner-Contest-286-A-D/</loc>
     
     <lastmod>2023-01-22</lastmod>
