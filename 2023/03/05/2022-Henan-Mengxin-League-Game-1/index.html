@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="[比赛链接](牛客竞赛_ACM&#x2F;NOI&#x2F;CSP&#x2F;CCPC&#x2F;ICPC算法编程高难度练习赛_牛客竞赛OJ (nowcoder.com))  A. Alice ans Bob思路 ： 先 分解质因数 ，把质因数数量当作没堆石子的数量，然后反尼姆博弈。  反尼姆博弈做法    各堆石子数目 异或 结果 不等于0，且 存在有石子数目大于1的石子堆。     各堆石子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022 Henan Mengxin League Game 1">
+<meta property="og:url" content="https://raincya.github.io/2023/03/05/2022-Henan-Mengxin-League-Game-1/index.html">
+<meta property="og:site_name" content="Hydrogen&#39;s Blog">
+<meta property="og:description" content="[比赛链接](牛客竞赛_ACM&#x2F;NOI&#x2F;CSP&#x2F;CCPC&#x2F;ICPC算法编程高难度练习赛_牛客竞赛OJ (nowcoder.com))  A. Alice ans Bob思路 ： 先 分解质因数 ，把质因数数量当作没堆石子的数量，然后反尼姆博弈。  反尼姆博弈做法    各堆石子数目 异或 结果 不等于0，且 存在有石子数目大于1的石子堆。     各堆石子">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-03-05T05:45:50.000Z">
+<meta property="article:modified_time" content="2023-03-05T06:40:05.039Z">
+<meta property="article:author" content="Hydrogen">
+<meta property="article:tag" content="-训练赛补题">
+<meta name="twitter:card" content="summary">
+
+
+<title >2022 Henan Mengxin League Game 1</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=0.0.0' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=0.0.0' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+
+    
+
+    
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"raincya.github.io","author":"Hydrogen","root":"/","typed_text":["Hydrogen"],"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"theme_version":"0.0.0","theme":{"switch":true,"default":"style-light"},"search":{"enable":true,"type":"local","path":"search.xml"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_button":"复制","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh","post":false,"clipboard":false},"swup":false,"plugin":{"flickr_justified_gallery":{"js":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"fancybox":{"css":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css","js":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"}},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h"}};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=0.0.0" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style=" position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+			<a href="/" class="trm-logo-frame trm-anima-link">
+				
+					<img alt="logo" src="/img/favicon.svg">
+				
+				
+					<div class="trm-logo-text">
+						Hy<span>drogen</span>
+					</div>
+				
+			</a>
+			<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+
+			<!-- menu -->
+			<div class="trm-menu">
+				<nav>
+					<ul>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/" target="">
+								Home
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/archives/" target="">
+								Archives
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/categories/" target="">
+								Categories
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/tags/" target="">
+								Tags
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/about/" target="">
+								About
+							</a>
+							
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+			<!-- menu end -->
+			
+			<!-- mode switcher place -->
+			
+			<div class="trm-mode-switcher-place">
+				<!-- <div class="trm-hidden-switcher"> -->
+					<div class="trm-mode-switcher">
+					  <i class="iconfont far fa-sun"></i>
+					  <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+					  <label class="trm-swich" for="trm-swich"></label>
+					  <i class="iconfont far fa-moon"></i>
+					</div>
+				  <!-- </div> -->
+			</div>
+			
+			<!-- mode switcher place end -->
+
+			
+				
+				<div id="trm-search-btn" class="trm-search-btn">
+					<i class="iconfont fas fa-search"></i>
+				</div>
+				 
+			 
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2022 Henan Mengxin League Game 1
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="http://q1.qlogo.cn/g?b=qq&nk=25569983&s=640">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Hydrogen
+    </h5>
+    
+    <div class="trm-label">
+        I`m
+        <span class="trm-typed-text">
+            <!-- Words for theme.user.typedText -->
+        </span>
+    </div>
+    
+</div>
+<!-- card header end -->
+
+<!-- sidebar social -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+
+<div class="trm-social">
+    
+        <a href="https://github.com/Raincya" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+
+<!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+
+<!-- info end -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<!-- action button -->
+<div class="text-center">
+    <a href="mailto:25569983@qq.com" class="trm-btn">
+        联系我
+        <i class="iconfont far fa-envelope"></i>
+    </a>
+</div>
+<!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            03/05
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            13:45
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Hydrogen
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <blockquote>
+<p>[比赛链接](<a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/52490?&headNav=www#question">牛客竞赛_ACM&#x2F;NOI&#x2F;CSP&#x2F;CCPC&#x2F;ICPC算法编程高难度练习赛_牛客竞赛OJ (nowcoder.com)</a>)</p>
+</blockquote>
+<h1 id="A-Alice-ans-Bob"><a href="#A-Alice-ans-Bob" class="headerlink" title="A. Alice ans Bob"></a>A. Alice ans Bob</h1><p><strong>思路</strong> ：</p>
+<p>先 <strong>分解质因数</strong> ，把质因数数量当作没堆石子的数量，然后反尼姆博弈。</p>
+<ul>
+<li>反尼姆博弈做法</li>
+</ul>
+<blockquote>
+<ol>
+<li>各堆石子数目 <strong>异或</strong> 结果 <strong>不等于0</strong>，且 <strong>存在有石子数目大于1的石子堆</strong>。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>各堆石子数目 <strong>异或</strong> 结果 <strong>等于0</strong>，且 <strong>所有石子堆数目全部为1</strong>。</li>
+</ol>
+</blockquote>
+<p><strong>代码</strong> ：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> sign = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">auto</span> func = [&amp;sign](<span class="type">int</span> n)-&gt;<span class="type">int</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n / i; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cnt++;<span class="type">int</span> scr = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (n % i == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    scr++;</span><br><span class="line">                    n /= i;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(scr &gt; <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    sign = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n &gt; <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">func</span>(n) % <span class="number">2</span> == <span class="number">1</span> &amp;&amp; !sign)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">out</span>(<span class="string">&quot;Bob win&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">out</span>(<span class="string">&quot;Alice win&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="B-打对子"><a href="#B-打对子" class="headerlink" title="B. 打对子"></a>B. 打对子</h1><p><strong>思路</strong>：</p>
+<p>统计alice和bob <strong>手牌数量是奇数个数的牌有几种</strong>（有一丝丝绕，就是统计每种牌的数量，然后统计是奇数数量的牌的种类数），然后比较数量，注意需要alice剩余数量 <strong>严格</strong> 小于bob才算赢。</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    string alice;cin &gt;&gt; alice;</span><br><span class="line">    string bob;cin &gt;&gt; bob;</span><br><span class="line">    map&lt;<span class="type">char</span>,<span class="type">int</span>&gt; ddz_alice,ddz_bob;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ddz_alice[alice[i]]++;</span><br><span class="line">        ddz_bob[bob[i]]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnt_alice = <span class="number">0</span>,cnt_bob = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> [k,v] : ddz_alice)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(v &amp; <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt_alice += (v % <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> [k,v] : ddz_bob)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(v &amp; <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt_bob += (v % <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//     cout &lt;&lt; cnt_alice &lt;&lt; &quot; &quot; &lt;&lt; cnt_bob &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">    <span class="built_in">out</span>(cnt_alice);</span><br><span class="line">    <span class="keyword">if</span>(cnt_alice &lt; cnt_bob)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">out</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">out</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="D-纪念品领取"><a href="#D-纪念品领取" class="headerlink" title="D.纪念品领取"></a>D.纪念品领取</h1><p><strong>思路</strong>：</p>
+<p>先初始化每个人的 <strong>位置和权值（姑且称他为权值）</strong>， 然后将 <strong>第 i 个选中的人的权值修改为 n + i</strong>，然后按照 <strong>权值</strong> 排序后，再按照 <strong>位置</strong> 排序前五个人，输出前五个即可。</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,m;cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> &#123; <span class="type">int</span> id,st; &#125;;<span class="function">vector&lt;Node&gt; <span class="title">arr</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        arr[i] = &#123;i,i&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> scr = n + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">        arr[x].st = scr++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>() + <span class="number">1</span>,arr.<span class="built_in">begin</span>() + n + <span class="number">1</span>,[&amp;](Node x,Node y)-&gt;<span class="type">bool</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> x.st &lt; y.st;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>() + <span class="number">1</span>,arr.<span class="built_in">begin</span>() + <span class="number">6</span>,[&amp;](Node x,Node y)-&gt;<span class="type">bool</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> x.id &lt; y.id;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">5</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; arr[i].id &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="E-聚会"><a href="#E-聚会" class="headerlink" title="E.聚会"></a>E.聚会</h1><p><strong>思路</strong>：</p>
+<p>对每个人的活跃度按照从小到大进行排序，然后从最小的开始统计前n项和加1的值，比较新的值和当前元素的大小关系（是否相等或小于），是则继续，否则输出。</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(arr.<span class="built_in">begin</span>() + <span class="number">1</span>,arr.<span class="built_in">begin</span>() + n + <span class="number">1</span>,[&amp;](<span class="type">int</span> a,<span class="type">int</span> b)-&gt;<span class="type">bool</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> a &lt;= b;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="type">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i] &lt;= res)</span><br><span class="line">        &#123;</span><br><span class="line">            res += arr[i];</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">out</span>(res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="G-热身小游戏"><a href="#G-热身小游戏" class="headerlink" title="G.热身小游戏"></a>G.热身小游戏</h1><p><strong>思路</strong>：</p>
+<p>使得 <strong>序列初始值全部为1</strong>，使用线段树维护 <strong>区间乘积</strong>，操作1即单点修改（将下标 i 的对应值改为 a），操作2即区间修改（将 [l,r] 区间内的值修改为1），操作3即输出线段树祖宗节点的值</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> SegTree</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> l,r,lazy,val;</span><br><span class="line">        <span class="built_in">Node</span>()</span><br><span class="line">        &#123;</span><br><span class="line">            l = r = lazy = <span class="number">0</span>;</span><br><span class="line">            val = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; tree[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line">    <span class="comment">// 左子节点</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lSon</span><span class="params">(<span class="type">int</span> idx)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> idx &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 右子节点</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">rSon</span><span class="params">(<span class="type">int</span> idx)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> idx &lt;&lt; <span class="number">1</span> | <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 更新节点</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> idx)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        tree[idx].val = tree[<span class="built_in">lSon</span>(idx)].val * tree[<span class="built_in">rSon</span>(idx)].val % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 下传标记</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(<span class="type">int</span> idx)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tree[idx].lazy)</span><br><span class="line">        &#123;</span><br><span class="line">            tree[<span class="built_in">lSon</span>(idx)].val = tree[<span class="built_in">rSon</span>(idx)].val = tree[<span class="built_in">lSon</span>(idx)].lazy = tree[<span class="built_in">rSon</span>(idx)].lazy = <span class="number">1</span>;</span><br><span class="line">            tree[idx].lazy = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 建树</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> idx, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        tree[idx].l = l,tree[idx].r = r;</span><br><span class="line">        <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">build</span>(<span class="built_in">lSon</span>(idx), l, mid);<span class="built_in">build</span>(<span class="built_in">rSon</span>(idx), mid + <span class="number">1</span>, r);</span><br><span class="line">        <span class="built_in">update</span>(idx);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 单点修改</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">changePoint</span><span class="params">(<span class="type">int</span> idx,<span class="type">int</span> x,<span class="type">int</span> val)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (tree[idx].l == tree[idx].r) &#123;</span><br><span class="line">            tree[idx].val = val;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = (tree[idx].l + tree[idx].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (x &lt;= mid) <span class="built_in">changePoint</span>(<span class="built_in">lSon</span>(idx), x, val);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">changePoint</span>(<span class="built_in">rSon</span>(idx), x, val);</span><br><span class="line">        <span class="built_in">update</span>(idx);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 区间修改</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">changeRange</span><span class="params">(<span class="type">int</span> idx,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> val)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tree[idx].l &gt;= l &amp;&amp; tree[idx].r &lt;= r)</span><br><span class="line">        &#123;</span><br><span class="line">            tree[idx].val = tree[idx].lazy = val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">pushDown</span>(idx);</span><br><span class="line">        <span class="type">int</span> mid = (tree[idx].l + tree[idx].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(l &lt;= mid)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">changeRange</span>(<span class="built_in">lSon</span>(idx), l, r, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(r &gt; mid)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">changeRange</span>(<span class="built_in">rSon</span>(idx), l, r, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">update</span>(idx);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> q;cin &gt;&gt; q;</span><br><span class="line">    SegTree::<span class="built_in">build</span>(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1e5</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= q;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> op;cin &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> a;cin &gt;&gt; a;</span><br><span class="line">            SegTree::<span class="built_in">changePoint</span>(<span class="number">1</span>,i,a);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> l,r;cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">            SegTree::<span class="built_in">changeRange</span>(<span class="number">1</span>,l,r,<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">out</span>(SegTree::tree[<span class="number">1</span>].val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="J-樱果运输"><a href="#J-樱果运输" class="headerlink" title="J.樱果运输"></a>J.樱果运输</h1><p><strong>思路</strong>：</p>
+<p>动态规划，二维01背包变形。</p>
+<p>递推公式：</p>
+<blockquote>
+<p>dp[j][k] &#x3D; max(dp[j][k],  dp[j - w[i]][k - 1] + v[i]);</p>
+</blockquote>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,m;cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> &#123; <span class="type">int</span> w,v; &#125;;<span class="function">vector&lt;Node&gt; <span class="title">arr</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> w_ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> &amp;[w,v] = arr[i];</span><br><span class="line">        cin &gt;&gt; w &gt;&gt; v;w_ans += w;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> [w,v] = arr[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = w_ans;j &gt;= w;j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k = n;k &gt; <span class="number">0</span>;k--)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[j][k] = <span class="built_in">max</span>(dp[j][k], dp[j - w][k - <span class="number">1</span>] + v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x,y;cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="type">int</span> sign = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j &lt;= n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[x][j] &gt;= y)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">out</span>(j);sign = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sign)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">out</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="K-糟糕的一天"><a href="#K-糟糕的一天" class="headerlink" title="K.糟糕的一天"></a>K.糟糕的一天</h1><p><strong>签到题</strong></p>
+<p><strong>思路</strong>：</p>
+<p>倒序遍历，比较元素大小就ok（也可以双重for(别被数据大小吓住，1e9但是可暴力)）</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Sol</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">arr</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>,kk = arr[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n;i &gt;= <span class="number">1</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i] &lt; kk)</span><br><span class="line">        &#123;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        kk = <span class="built_in">max</span>(kk, arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">out</span>(res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+    <a href="/2023/01/22/Sparse-Table/" class="trm-cover-frame trm-anima-link">
+        
+        
+            <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+        
+    </a>
+    <div class="trm-card-descr">
+        <div class="trm-label trm-category trm-mb-20">
+            <a href=" /categories/%E7%AE%97%E7%AB%9E%E6%A8%A1%E6%9D%BF/">
+                算竞模板
+            </a>
+        </div>
+        <h5>
+            <a href="/2023/01/22/Sparse-Table/" class="trm-anima-link">
+                Sparse Table
+            </a>
+        </h5>
+        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+        <ul class="trm-card-data trm-label">
+            <li>23/01/22</li>
+            <li>13:04</li>
+            
+            
+        </ul>
+    </div>
+</div>
+        </div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v0.0.0
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <!-- body -->
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+</div>
+            <!-- body end -->
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  <div id="trm-back-top" class="trm-back-top" data-title="回到顶部">
+    <i class="iconfont fas fa-arrow-up"></i>
+</div>
+  
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
+  <!-- Plugin -->
+
+
+
+    
+    
+
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=0.0.0"></script>
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=0.0.0"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+
+    <!-- 评论插件 -->
+    
+        
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=0.0.0"></script>
+
+</body>
+
+</html>
